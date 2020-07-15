@@ -1,3 +1,9 @@
+on:
+  push:
+    branches:
+    - main
+    - master
+
 steps:
    - uses: docker/build-push-action@v1
      name: Build & push Docker image
