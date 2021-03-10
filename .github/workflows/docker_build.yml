@@ -8,6 +8,22 @@ jobs:
     steps:
         - uses: actions/checkout@v1
           name: Check out code
+        - uses: ricardochaves/python-lint@v1.3.0
+          name: tests
+          with:
+            python-root-list: "python_alelo tests"
+            use-pylint: true
+            use-pycodestyle: false
+            use-flake8: true
+            use-black: true
+            use-mypy: false
+            use-isort: false
+            extra-pylint-options: ""
+            extra-pycodestyle-options: ""
+            extra-flake8-options: ""
+            extra-black-options: ""
+            extra-mypy-options: ""
+            extra-isort-options: ""
         - uses: docker/build-push-action@v1
           name: Build & push Docker image
           with:
